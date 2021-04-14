@@ -4,9 +4,9 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 public class EmployeePayrollData {
-    private int id;
-    private double salary;
-    private String name;
+    public static Double salary;
+    public int id;
+    public String name;
     private LocalDate startDate;
 
     public EmployeePayrollData(Integer id, String name, Double salary) {

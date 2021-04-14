@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.employeepayrollservicetest.EmployeePayrollServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-04-09T04:49:48" hostname="DESKTOP-GFV8CMG" time="0.248">
+<testsuite name="com.employeepayrollservicetest.EmployeePayrollServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-04-14T15:03:22" hostname="DESKTOP-GFV8CMG" time="1.485">
   <properties/>
-  <testcase name="givenEmployeePayrollInDB_WhenRetrieved_ShouldMatchEmployeeCount()" classname="com.employeepayrollservicetest.EmployeePayrollServiceTest" time="0.248"/>
+  <testcase name="givenNewSalaryForEmployee_WhenUpdated_ShouldSyncWithDB()" classname="com.employeepayrollservicetest.EmployeePayrollServiceTest" time="1.485"/>
   <system-out><![CDATA[Connecting to database:jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-Connection is Successful!!!!!!!com.mysql.cj.jdbc.ConnectionImpl@59a52b3a
+Connection is successful!com.mysql.cj.jdbc.ConnectionImpl@449b94ea
+Connecting to database:jdbc:mysql://localhost:3306/payroll_service?useSSL=false
+Connection is successful!com.mysql.cj.jdbc.ConnectionImpl@515b087
+Connecting to database:jdbc:mysql://localhost:3306/payroll_service?useSSL=false
+Connection is successful!com.mysql.cj.jdbc.ConnectionImpl@59adb6c5
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
