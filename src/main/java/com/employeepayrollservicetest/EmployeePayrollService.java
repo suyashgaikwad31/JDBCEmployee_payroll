@@ -3,6 +3,14 @@ import java.util.Arrays;
 import java.util.List;
 
 public class EmployeePayrollService {
+    public void updateEmployeeSalaryWithPreparedStatement(String name, double salary) {
+        int result = employeePayrollDBService.updateEmployeeDataUsingPreparedStatement(name, salary);
+        if (result == 0) return;
+        EmployeePayrollData employeePayrollData = this.getEmployeePayrollData(name);
+        if (employeePayrollData != null)
+            employeePayrollData.salary = salary;
+    }
+
     public enum IOService {CONSOLE_IO, FILE_IO, DB_IO, REST_IO}
     private List<EmployeePayrollData> employeePayrollList;
     private EmployeePayrollDBService employeePayrollDBService;

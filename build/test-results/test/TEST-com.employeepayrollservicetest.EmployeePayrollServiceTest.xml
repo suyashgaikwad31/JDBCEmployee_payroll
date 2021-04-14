@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.employeepayrollservicetest.EmployeePayrollServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-04-14T15:03:22" hostname="DESKTOP-GFV8CMG" time="1.485">
+<testsuite name="com.employeepayrollservicetest.EmployeePayrollServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-04-14T15:26:05" hostname="DESKTOP-GFV8CMG" time="0.638">
   <properties/>
-  <testcase name="givenNewSalaryForEmployee_WhenUpdated_ShouldSyncWithDB()" classname="com.employeepayrollservicetest.EmployeePayrollServiceTest" time="1.485"/>
+  <testcase name="givenNewSalaryForEmp_WhenUpdated_ShouldSyncWithDB()" classname="com.employeepayrollservicetest.EmployeePayrollServiceTest" time="0.638"/>
   <system-out><![CDATA[Connecting to database:jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-Connection is successful!com.mysql.cj.jdbc.ConnectionImpl@449b94ea
+Connection is successful!com.mysql.cj.jdbc.ConnectionImpl@763c4d84
 Connecting to database:jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-Connection is successful!com.mysql.cj.jdbc.ConnectionImpl@515b087
+Connection is successful!com.mysql.cj.jdbc.ConnectionImpl@63b38fd4
 Connecting to database:jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-Connection is successful!com.mysql.cj.jdbc.ConnectionImpl@59adb6c5
+Connection is successful!com.mysql.cj.jdbc.ConnectionImpl@66258ee0
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

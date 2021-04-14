@@ -1,5 +1,6 @@
 package com.employeepayrollservicetest;
 
+import javax.swing.*;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -8,6 +9,7 @@ import java.util.List;
 public class EmployeePayrollDBService {
     private PreparedStatement employeePayrollDataStatement;
     private static EmployeePayrollDBService employeePayrollDBService;
+    private PreparedStatement updateEmployeeSalary;
 
 
     public static EmployeePayrollDBService getInstance() {
@@ -102,4 +104,29 @@ public class EmployeePayrollDBService {
             e.printStackTrace();
         }
     }
+
+    public int updateEmployeeDataUsingPreparedStatement(String name, double salary) {
+        List<EmployeePayrollData> employeePayrollList = null;
+        if (this.updateEmployeeSalary == null)
+            this.prepareStatementForToUpdateSalary();
+        try {
+            updateEmployeeSalary.setString(2, name);
+            updateEmployeeSalary.setDouble(1, salary);
+            return updateEmployeeSalary.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    private void prepareStatementForToUpdateSalary() {
+        try {
+            Connection connection = this.getConnection();
+            String sql = "update employee_payroll set salary = ? where name = ?";
+            updateEmployeeSalary = connection.prepareStatement(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
