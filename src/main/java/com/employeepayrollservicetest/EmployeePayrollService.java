@@ -2,6 +2,7 @@ package com.employeepayrollservicetest;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 public class EmployeePayrollService {
     public void updateEmployeeSalaryWithPreparedStatement(String name, double salary) {
@@ -19,6 +20,10 @@ public class EmployeePayrollService {
 
     public List<EmployeePayrollData> readDataForDateRange(LocalDate startDate, LocalDate endDate) {
         return employeePayrollDBService.getDataForDateRange(startDate, endDate);
+    }
+
+    public Map<String, Double> SalaryByGender() {
+        return employeePayrollDBService.getSalaryByGender();
     }
 
     public enum IOService {CONSOLE_IO, FILE_IO, DB_IO, REST_IO}

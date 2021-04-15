@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.employeepayrollservicetest.EmployeePayrollServiceTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2021-04-15T04:36:18" hostname="DESKTOP-GFV8CMG" time="0.35">
+<testsuite name="com.employeepayrollservicetest.EmployeePayrollServiceTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2021-04-15T04:56:32" hostname="DESKTOP-GFV8CMG" time="0.31">
   <properties/>
-  <testcase name="givenNewSalaryForEmp_WhenUpdated_ShouldSyncWithDB()" classname="com.employeepayrollservicetest.EmployeePayrollServiceTest" time="0.35">
-    <failure message="java.lang.NullPointerException: Cannot invoke &quot;java.sql.PreparedStatement.setString(int, String)&quot; because &quot;this.employeePayrollDataStatement&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;java.sql.PreparedStatement.setString(int, String)&quot; because &quot;this.employeePayrollDataStatement&quot; is null
-	at com.employeepayrollservicetest.EmployeePayrollDBService.getEmployeePayrollData(EmployeePayrollDBService.java:76)
-	at com.employeepayrollservicetest.EmployeePayrollService.checkEmployeePayrollInSyncWithDB(EmployeePayrollService.java:44)
-	at com.employeepayrollservicetest.EmployeePayrollServiceTest.givenNewSalaryForEmp_WhenUpdated_ShouldSyncWithDB(EmployeePayrollServiceTest.java:33)
+  <testcase name="givenEmployeePayrollData_WhenSalaryChangeByGender_ShouldReturnValue()" classname="com.employeepayrollservicetest.EmployeePayrollServiceTest" time="0.31">
+    <failure message="java.lang.NullPointerException: Cannot invoke &quot;java.lang.Double.equals(Object)&quot; because the return value of &quot;java.util.Map.get(Object)&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;java.lang.Double.equals(Object)&quot; because the return value of &quot;java.util.Map.get(Object)&quot; is null
+	at com.employeepayrollservicetest.EmployeePayrollServiceTest.givenEmployeePayrollData_WhenSalaryChangeByGender_ShouldReturnValue(EmployeePayrollServiceTest.java:57)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -97,29 +95,20 @@
 </failure>
   </testcase>
   <system-out><![CDATA[Connecting to database:jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-Connection is successful!com.mysql.cj.jdbc.ConnectionImpl@2eb56904
+Connection is successful!com.mysql.cj.jdbc.ConnectionImpl@113a35e5
 Connecting to database:jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-Connection is successful!com.mysql.cj.jdbc.ConnectionImpl@2335db4
-Connecting to database:jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-Connection is successful!com.mysql.cj.jdbc.ConnectionImpl@9e0d72e
+Connection is successful!com.mysql.cj.jdbc.ConnectionImpl@59adb6c5
 ]]></system-out>
-  <system-err><![CDATA[java.sql.SQLException: SQL String cannot be NULL
+  <system-err><![CDATA[java.sql.SQLException: Column 'salary' not found.
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:89)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:63)
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:73)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:85)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.<init>(ClientPreparedStatement.java:219)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.<init>(ClientPreparedStatement.java:193)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.getInstance(ClientPreparedStatement.java:134)
-	at com.mysql.cj.jdbc.ConnectionImpl.clientPrepareStatement(ConnectionImpl.java:675)
-	at com.mysql.cj.jdbc.ConnectionImpl.prepareStatement(ConnectionImpl.java:1660)
-	at com.mysql.cj.jdbc.ConnectionImpl.prepareStatement(ConnectionImpl.java:1580)
-	at com.employeepayrollservicetest.EmployeePayrollDBService.prepareStatementForEmployeeData(EmployeePayrollDBService.java:104)
-	at com.employeepayrollservicetest.EmployeePayrollDBService.getEmployeePayrollData(EmployeePayrollDBService.java:74)
-	at com.employeepayrollservicetest.EmployeePayrollService.checkEmployeePayrollInSyncWithDB(EmployeePayrollService.java:44)
-	at com.employeepayrollservicetest.EmployeePayrollServiceTest.givenNewSalaryForEmp_WhenUpdated_ShouldSyncWithDB(EmployeePayrollServiceTest.java:33)
+	at com.mysql.cj.jdbc.result.ResultSetImpl.findColumn(ResultSetImpl.java:575)
+	at com.mysql.cj.jdbc.result.ResultSetImpl.getDouble(ResultSetImpl.java:800)
+	at com.employeepayrollservicetest.EmployeePayrollDBService.getSalaryByGender(EmployeePayrollDBService.java:180)
+	at com.employeepayrollservicetest.EmployeePayrollService.SalaryByGender(EmployeePayrollService.java:26)
+	at com.employeepayrollservicetest.EmployeePayrollServiceTest.givenEmployeePayrollData_WhenSalaryChangeByGender_ShouldReturnValue(EmployeePayrollServiceTest.java:56)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -208,16 +197,5 @@ Connection is successful!com.mysql.cj.jdbc.ConnectionImpl@9e0d72e
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
 	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
 	at java.base/java.lang.Thread.run(Thread.java:832)
-Caused by: com.mysql.cj.exceptions.WrongArgumentException: SQL String cannot be NULL
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:64)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:85)
-	at com.mysql.cj.AbstractPreparedQuery.checkNullOrEmptyQuery(AbstractPreparedQuery.java:159)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.<init>(ClientPreparedStatement.java:215)
-	... 97 more
 ]]></system-err>
 </testsuite>

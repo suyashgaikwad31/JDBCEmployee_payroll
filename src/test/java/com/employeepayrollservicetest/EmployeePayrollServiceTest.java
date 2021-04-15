@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.util.List;
-
+import java.util.Map;
 
 
 public class EmployeePayrollServiceTest {
@@ -48,5 +48,12 @@ public class EmployeePayrollServiceTest {
         LocalDate endDate = LocalDate.now();
         List<EmployeePayrollData> employeePayrollList = employeePayrollService.readDataForDateRange(startDate, endDate);
         Assertions.assertEquals(4, employeePayrollList.size());
+    }
+    @Test
+    public void givenEmployeePayrollData_WhenSalaryChangeByGender_ShouldReturnValue() {
+        EmployeePayrollService employeePayrollService = new EmployeePayrollService();
+        List<EmployeePayrollData> employeePayrollData = employeePayrollService.readEmployeePayrollData(EmployeePayrollService.IOService.DB_IO);
+        Map<String, Double> SalaryByGender = employeePayrollService.SalaryByGender();
+        Assertions.assertTrue(SalaryByGender.get("M").equals(2000000.0) && SalaryByGender.get("F").equals(3000000.0));
     }
 }
