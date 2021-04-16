@@ -1,6 +1,7 @@
 package com.employeepayrollservicetest;
+
 import java.time.LocalDate;
-import java.util.Arrays;
+
 import java.util.List;
 import java.util.Map;
 
@@ -25,6 +26,11 @@ public class EmployeePayrollService {
     public Map<String, Double> SalaryByGender() {
         return employeePayrollDBService.getSalaryByGender();
     }
+
+    public void addEmployeeToPayroll(String name, double salary, LocalDate startDate, String gender) {
+        employeePayrollList.add(employeePayrollDBService.addEmployeePayroll(name, salary, startDate, gender));
+    }
+
 
     public enum IOService {CONSOLE_IO, FILE_IO, DB_IO, REST_IO}
     private List<EmployeePayrollData> employeePayrollList;

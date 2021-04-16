@@ -15,6 +15,8 @@ public class EmployeePayrollDBService {
     private PreparedStatement employeeSalary;
     private PreparedStatement prepareStatement;
     private String sql;
+    private Connection connection;
+    private String gender;
 
 
     public static EmployeePayrollDBService getInstance() {
@@ -186,4 +188,25 @@ public class EmployeePayrollDBService {
         return genderSalaryMap;
     }
 
+
+    public EmployeePayrollData addEmployeePayroll(String name, double salary, LocalDate startDate, String gender) {
+        int ID = -1;
+        EmployeePayrollData employeePayrollData = null;
+        String sql = String.format("INSERT INTO employee_payroll (name, gender, salary, start)" +
+                "VALUES ('%s', '%s', '%s', '%s')", name, gender, salary, Date.valueOf(startDate));
+        try (Connection connection = this.getConnection()) {
+            Statement statement = connection.createStatement();
+            int rowAffected  = statement.executeUpdate(sql, statement.RETURN_GENERATED_KEYS);
+            if (rowAffected == 1){
+                ResultSet resultSet = statement.getGeneratedKeys();
+                if (resultSet.next()) ID = resultSet.getInt(1);
+            }
+            employeePayrollData = new EmployeePayrollData(ID, name, salary, startDate);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return employeePayrollData;
+    }
+
 }
+
